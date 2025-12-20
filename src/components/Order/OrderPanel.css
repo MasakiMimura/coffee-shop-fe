@@ -1,0 +1,153 @@
+.order-panel {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  background-color: #fff;
+  border-left: 1px solid #ddd;
+  height: 100%;
+}
+
+.order-header {
+  padding: 16px;
+  font-weight: bold;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.point-card-section {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+}
+
+.point-card-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.point-card-input:focus {
+  outline: none;
+  border-color: #0095ff;
+}
+
+.ok-button {
+  padding: 8px 20px;
+  background-color: #0095ff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.ok-button:hover {
+  background-color: #0077cc;
+}
+
+.member-info {
+  padding: 12px;
+  background-color: #f0f8ff;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  font-weight: bold;
+}
+
+.order-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+}
+
+.order-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  margin-bottom: 8px;
+}
+
+.item-name {
+  font-weight: 500;
+  flex: 1;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.quantity-controls button {
+  width: 28px;
+  height: 28px;
+  border: 1px solid #ddd;
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.quantity-controls button:hover {
+  background-color: #f0f0f0;
+  border-color: #0095ff;
+}
+
+.quantity {
+  min-width: 30px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.order-total {
+  padding: 16px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-label {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.total-amount {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.confirm-button {
+  margin: 12px;
+  padding: 16px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.confirm-button:hover:not(:disabled) {
+  background-color: #c82333;
+}
+
+.confirm-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}

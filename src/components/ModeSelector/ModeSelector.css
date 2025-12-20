@@ -1,0 +1,42 @@
+.mode-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 200px;
+  background-color: #f5f5f5;
+  border-right: 1px solid #ddd;
+}
+
+.mode-selector-header {
+  padding: 16px;
+  font-weight: bold;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.mode-button {
+  padding: 16px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+.mode-button:hover:not(:disabled) {
+  background-color: #f0f0f0;
+}
+
+.mode-button.active {
+  background-color: #0095ff;
+  color: white;
+  font-weight: bold;
+}
+
+.mode-button:disabled {
+  color: #999;
+  cursor: not-allowed;
+  background-color: #f9f9f9;
+}

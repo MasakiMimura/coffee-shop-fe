@@ -1,0 +1,80 @@
+.product-list-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: #fff;
+  border-right: 1px solid #ddd;
+  overflow: hidden;
+}
+
+.product-list-header {
+  padding: 16px;
+  font-weight: bold;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+}
+
+.category-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+  overflow-x: auto;
+  flex-shrink: 0;
+}
+
+.category-tab {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  background-color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s;
+  font-size: 14px;
+}
+
+.category-tab:hover {
+  background-color: #f0f0f0;
+}
+
+.category-tab.active {
+  background-color: #0095ff;
+  color: white;
+  border-color: #0095ff;
+  font-weight: bold;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 16px;
+  padding: 16px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.no-products {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 40px;
+  color: #999;
+  font-size: 16px;
+}
+
+.error-message {
+  background-color: #fee;
+  padding: 12px;
+  margin: 12px;
+  border-radius: 4px;
+  color: #c00;
+  text-align: center;
+}
+
+.loading-message {
+  text-align: center;
+  padding: 40px;
+  color: #666;
+  font-size: 16px;
+}
