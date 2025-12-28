@@ -176,6 +176,9 @@ export const mockApi = {
     return {
       success: true,
       orderId: data.orderId,
+      stockTransactions: [],
+      consumedMaterials: [],
+      processedAt: new Date().toISOString(),
     };
   },
 

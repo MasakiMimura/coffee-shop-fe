@@ -16,16 +16,11 @@ export interface UserResponse {
 export class UserService {
   /**
    * 会員カード番号で会員を検索
+   * モック: '/mock/users/{cardNo}'
+   * 実API: '/api/v1/users/{cardNo}'
    */
   async getUserByCardNo(cardNo: string): Promise<Member> {
-    const response = await apiClient.get<UserResponse>(`/api/v1/users/${cardNo}`);
-    return {
-      memberId: response.user.cardNo,
-      memberCardNo: response.user.cardNo,
-      firstName: response.user.firstName,
-      lastName: response.user.lastName,
-      pointBalance: response.user.pointBalance,
-    };
+    return await apiClient.get<Member>(`/mock/users/${cardNo}`);
   }
 }
 

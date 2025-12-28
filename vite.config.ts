@@ -9,8 +9,13 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: 'http://localhost:5011',
+        target: 'http://localhost:5000',
         changeOrigin: true,
+      },
+      '/mock': {
+        target: 'http://localhost:80',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/mock/, '')
       }
     }
   },

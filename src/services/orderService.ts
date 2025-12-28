@@ -1,5 +1,4 @@
 import { apiClient } from './api';
-import type { CartItem } from '../types';
 
 export interface CreateOrderRequest {
   memberCardNo: string | null;

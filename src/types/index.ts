@@ -1,6 +1,4 @@
 // レジ画面で使用する基本型定義
-export type { Category, Product, CartItem, Member, POSState };
-
 export interface Category {
   categoryId: number;
   categoryName: string;

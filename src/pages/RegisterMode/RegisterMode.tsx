@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import type { CartItem, Member, Product } from '../../types';
 import { ModeSelector, type Mode } from '../../components/ModeSelector/ModeSelector';
 import { ProductList } from '../../components/Product/ProductList';
@@ -121,7 +121,7 @@ export function RegisterMode() {
     try {
       setIsLoading(true);
       setError(null);
-      const memberData = await userService.getMember(cardNo);
+      const memberData = await userService.getUserByCardNo(cardNo);
       setMember(memberData);
     } catch (err) {
       console.error('会員検索エラー:', err);

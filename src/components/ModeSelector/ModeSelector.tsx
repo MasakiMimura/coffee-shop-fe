@@ -1,4 +1,3 @@
-import React from 'react';
 import './ModeSelector.css';
 
 export type Mode = 'register' | 'product-management';
