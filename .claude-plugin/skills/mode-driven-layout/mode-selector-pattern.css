@@ -1,0 +1,107 @@
+/**
+ * モード選択コンポーネントのスタイル
+ *
+ * ボタンリストとして表示し、選択状態を視覚的に示します。
+ */
+
+.{feature-selector} {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  width: 100%;
+}
+
+.{feature-selector}__button {
+  padding: 16px;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+  text-align: left;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.{feature-selector}__button:first-child {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.{feature-selector}__button:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+/**
+ * ホバー状態
+ * 無効化されていないボタンのみホバー効果を適用
+ */
+.{feature-selector}__button:hover:not(:disabled) {
+  background-color: #f0f0f0;
+}
+
+/**
+ * アクティブ状態
+ * 選択されているモードを強調表示
+ */
+.{feature-selector}__button.active {
+  background-color: #0095ff;
+  color: white;
+  font-weight: bold;
+}
+
+/**
+ * 無効状態
+ * 未実装または使用不可のモードをグレーアウト
+ */
+.{feature-selector}__button:disabled {
+  color: #999;
+  cursor: not-allowed;
+  background-color: #f9f9f9;
+}
+
+/**
+ * アイコン表示（オプション）
+ */
+.{feature-selector}__icon {
+  font-size: 18px;
+  width: 24px;
+  text-align: center;
+}
+
+.{feature-selector}__label {
+  flex: 1;
+}
+
+/**
+ * フォーカス状態（アクセシビリティ）
+ */
+.{feature-selector}__button:focus {
+  outline: 2px solid #0095ff;
+  outline-offset: -2px;
+}
+
+/**
+ * レスポンシブ対応（オプション）
+ * 小さい画面では横並びに変更
+ */
+@media (max-width: 768px) {
+  .{feature-selector} {
+    flex-direction: row;
+    overflow-x: auto;
+  }
+
+  .{feature-selector}__button {
+    flex: 1;
+    min-width: 100px;
+    border-bottom: none;
+    border-right: 1px solid #ddd;
+  }
+
+  .{feature-selector}__button:last-child {
+    border-right: none;
+  }
+}

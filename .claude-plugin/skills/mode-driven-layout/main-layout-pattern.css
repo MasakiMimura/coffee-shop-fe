@@ -1,0 +1,57 @@
+/**
+ * メインレイアウトのスタイル
+ *
+ * 2カラムレイアウト: 左列（サイドバー）と右列（コンテンツエリア）
+ */
+
+.main-layout {
+  display: flex;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+/**
+ * 左列: サイドバー
+ * 固定幅、モード選択UIを表示
+ */
+.main-layout__sidebar {
+  width: {SidebarWidth}px;
+  background-color: #e3f2fd;
+  padding: 20px;
+  border-right: 2px solid #90caf9;
+  flex-shrink: 0;
+  overflow-y: auto;
+}
+
+.main-layout__sidebar-title {
+  margin: 0 0 20px 0;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+}
+
+/**
+ * 右列: コンテンツエリア
+ * フレックスで残りのスペースを占有
+ */
+.main-layout__content {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+/**
+ * レスポンシブ対応（オプション）
+ * 画面幅が小さい場合、サイドバーを非表示にしてハンバーガーメニューに切り替える
+ */
+@media (max-width: 768px) {
+  .main-layout {
+    flex-direction: column;
+  }
+
+  .main-layout__sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid #90caf9;
+  }
+}

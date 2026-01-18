@@ -1,0 +1,18 @@
+{
+  "name": "implementation-templates",
+  "version": "1.0.0",
+  "description": "バックエンド（.NET Core）とフロントエンド（React+TypeScript）の実装コード例を提供するプラグイン。汎用パターンを使用して、Entity、Repository、Service、Controller、フロントエンドコンポーネントの実装を支援します。",
+  "author": {
+    "name": "CoffeeShop Development Team"
+  },
+  "tags": [
+    "backend",
+    "dotnet-core",
+    "entity-framework",
+    "frontend",
+    "react",
+    "typescript",
+    "layout-patterns",
+    "mode-driven"
+  ]
+}
