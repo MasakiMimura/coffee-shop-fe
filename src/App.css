@@ -11,3 +11,13 @@
   margin: 0;
   padding: 0;
 }
+
+.placeholder-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  color: #666;
+  font-size: 18px;
+}

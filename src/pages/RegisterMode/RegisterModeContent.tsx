@@ -1,15 +1,13 @@
 import { useState, useEffect } from 'react';
 import type { CartItem, Member, Product } from '../../types';
-import { ModeSelector, type Mode } from '../../components/ModeSelector/ModeSelector';
 import { ProductList } from '../../components/Product/ProductList';
 import { OrderPanel } from '../../components/Order/OrderPanel';
 import { ConfirmDialog } from '../../components/Dialog/ConfirmDialog';
 import { orderService } from '../../services/orderService';
 import { userService } from '../../services/userService';
-import './RegisterMode.css';
+import './RegisterModeContent.css';
 
-export function RegisterMode() {
-  const [currentMode, setCurrentMode] = useState<Mode>('register');
+export function RegisterModeContent() {
   const [orderId, setOrderId] = useState<number | null>(null);
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [member, setMember] = useState<Member | null>(null);
@@ -28,8 +26,6 @@ export function RegisterMode() {
       setIsLoading(true);
       setError(null);
 
-      // 既存のIN_ORDER注文があるかチェック（実際のAPIがあれば使用）
-      // 今回は新規作成
       if (showDialog && orderId) {
         setShowClearDialog(true);
         setIsLoading(false);
@@ -46,19 +42,6 @@ export function RegisterMode() {
     } finally {
       setIsLoading(false);
     }
-  };
-
-  // レジモード起動処理
-  const handleModeChange = (mode: Mode) => {
-    if (mode === 'register') {
-      // 既にレジモード中に再度クリックした場合
-      if (currentMode === 'register' && (cartItems.length > 0 || orderId)) {
-        setShowClearDialog(true);
-      } else {
-        checkAndCreateOrder(true);
-      }
-    }
-    setCurrentMode(mode);
   };
 
   // 初期化確認ダイアログのOK処理
@@ -180,7 +163,7 @@ export function RegisterMode() {
   };
 
   return (
-    <div className="register-mode">
+    <div className="register-mode-content">
       {error && (
         <div className="error-banner">
           <strong>エラー:</strong> {error}
@@ -190,27 +173,15 @@ export function RegisterMode() {
         </div>
       )}
 
-      <div className="register-mode-content">
-        <ModeSelector currentMode={currentMode} onModeChange={handleModeChange} />
-
-        {currentMode === 'register' ? (
-          <>
-            <ProductList onProductSelect={handleProductSelect} />
-            <OrderPanel
-              cartItems={cartItems}
-              totalAmount={calculateTotal()}
-              member={member}
-              onQuantityChange={handleQuantityChange}
-              onConfirm={handleConfirm}
-              onMemberSearch={handleMemberSearch}
-            />
-          </>
-        ) : (
-          <div className="placeholder-content">
-            <p>商品管理機能は未実装です</p>
-          </div>
-        )}
-      </div>
+      <ProductList onProductSelect={handleProductSelect} />
+      <OrderPanel
+        cartItems={cartItems}
+        totalAmount={calculateTotal()}
+        member={member}
+        onQuantityChange={handleQuantityChange}
+        onConfirm={handleConfirm}
+        onMemberSearch={handleMemberSearch}
+      />
 
       {isLoading && (
         <div className="loading-overlay">

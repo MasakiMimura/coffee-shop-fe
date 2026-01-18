@@ -1,0 +1,26 @@
+.main-layout {
+  display: flex;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.main-layout__sidebar {
+  width: 200px;
+  background-color: #e3f2fd;
+  padding: 20px;
+  border-right: 2px solid #90caf9;
+  flex-shrink: 0;
+}
+
+.main-layout__sidebar-title {
+  margin: 0 0 20px 0;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+}
+
+.main-layout__content {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}

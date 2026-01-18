@@ -3,35 +3,33 @@ import './ModeSelector.css';
 export type Mode = 'register' | 'product-management';
 
 interface ModeSelectorProps {
-  currentMode: Mode;
-  onModeChange: (mode: Mode) => void;
+  selected: Mode;
+  onSelect: (mode: Mode) => void;
 }
 
-export function ModeSelector({ currentMode, onModeChange }: ModeSelectorProps) {
+export function ModeSelector({ selected, onSelect }: ModeSelectorProps) {
   return (
     <div className="mode-selector">
-      <div className="mode-selector-header">モード選択</div>
       <button
-        className={`mode-button ${currentMode === 'register' ? 'active' : ''}`}
-        onClick={() => onModeChange('register')}
+        className={`mode-button ${selected === 'register' ? 'active' : ''}`}
+        onClick={() => onSelect('register')}
       >
         レジ
       </button>
       <button
-        className={`mode-button ${currentMode === 'product-management' ? 'active' : ''}`}
-        onClick={() => onModeChange('product-management')}
-        disabled
+        className={`mode-button ${selected === 'product-management' ? 'active' : ''}`}
+        onClick={() => onSelect('product-management')}
       >
         商品管理
       </button>
       <button className="mode-button" disabled>
-        レジ
+        レシピ管理
       </button>
       <button className="mode-button" disabled>
-        商品管理
+        在庫管理
       </button>
       <button className="mode-button" disabled>
-        商品管理
+        材料管理
       </button>
     </div>
   );
