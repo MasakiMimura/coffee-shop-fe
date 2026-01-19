@@ -1,6 +1,11 @@
 import type { CreateOrderResponse, AddItemRequest, ConfirmOrderResponse, PayOrderRequest, PayOrderResponse } from '../services/orderService';
-import type { GetCategoriesResponse, GetProductsResponse } from '../services/productService';
+import type { Category, Product } from '../types';
 import { mockCategories, mockProducts, getProductsByCategory, findMemberByCardNo } from './mockData';
+
+interface ProductsWithCategoriesResponse {
+  products: Product[];
+  categories: Category[];
+}
 
 // モック注文管理
 let mockOrderId = 1000;
@@ -15,17 +20,11 @@ interface MockOrder {
 const mockOrders: Map<number, MockOrder> = new Map();
 
 export const mockApi = {
-  // カテゴリ一覧取得
-  getCategories: async (): Promise<GetCategoriesResponse> => {
-    await delay(300);
-    return { categories: mockCategories };
-  },
-
-  // 商品一覧取得
-  getProducts: async (categoryId?: number): Promise<GetProductsResponse> => {
+  // 商品一覧とカテゴリ一覧を取得
+  getProducts: async (categoryId?: number): Promise<ProductsWithCategoriesResponse> => {
     await delay(300);
     const products = getProductsByCategory(categoryId);
-    return { products };
+    return { products, categories: mockCategories };
   },
 
   // 商品詳細取得

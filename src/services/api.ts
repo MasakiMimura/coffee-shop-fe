@@ -66,11 +66,6 @@ export class ApiClient {
     const method = options.method || 'GET';
     const body = options.body ? JSON.parse(options.body as string) : undefined;
 
-    // /mock/categories -> getCategories
-    if (endpoint === '/mock/categories' && method === 'GET') {
-      return await mockApi.getCategories() as T;
-    }
-
     // /mock/products -> getProducts
     if (endpoint.startsWith('/mock/products')) {
       if (method === 'GET') {

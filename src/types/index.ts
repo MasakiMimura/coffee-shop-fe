@@ -2,6 +2,7 @@
 export interface Category {
   categoryId: number;
   categoryName: string;
+  displayOrder?: number;
 }
 
 export interface Product {
@@ -10,8 +11,10 @@ export interface Product {
   price: number;
   isCampaign: boolean;
   campaignDiscountPercent: number;
+  discountedPrice: number;
   categoryId: number;
-  categoryName: string;
+  isActive?: boolean;
+  categoryName?: string;
 }
 
 export interface CartItem {
